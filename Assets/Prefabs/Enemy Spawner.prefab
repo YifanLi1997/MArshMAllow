@@ -43,3 +43,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a21819b7b190b45e098b6d36955b6611, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  waveConfigs:
+  - {fileID: 11400000, guid: 04b6492c404cb4339906e39648dfbf52, type: 2}
+  - {fileID: 11400000, guid: a42a484a7a8dc4cc1ade96f6b79134b6, type: 2}
