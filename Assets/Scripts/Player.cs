@@ -5,12 +5,18 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    [Header("Player Health")]
+    [SerializeField] int health = 1000;
+
+    [Header("Player Movement")]
     [SerializeField] float moveSpeed = 20f;
-    [SerializeField] float projectileSpeed = 50f;
-    [SerializeField] float timeBetweenShoot = 0.3f;
     [SerializeField] float xPadding = 0.5f;
     [SerializeField] float yPadding = 0.5f;
+
+    [Header("Projectile")]
     [SerializeField] GameObject laserPrefab;
+    [SerializeField] float projectileSpeed = 50f;
+    [SerializeField] float timeBetweenShoot = 0.1f;
 
     Camera m_MainCamera;
 
@@ -31,6 +37,30 @@ public class Player : MonoBehaviour
     {
         Move();
         Shoot();
+    }
+
+    // if we want to extract this health block,
+    // we could build another script called Health
+    // and apply it to both Enemy and Player.
+    // However, the death effects of the two could be very different
+    // So there, we will keep it this way
+    public void OnTriggerEnter2D(Collider2D collision)
+    {
+        DamageDealer damageDealer =
+            collision.gameObject.GetComponent<DamageDealer>();
+        if (!damageDealer) { return; }
+        ProcessHit(damageDealer);
+    }
+
+    private void ProcessHit(DamageDealer damageDealer)
+    {
+        health -= damageDealer.GetDamage();
+        damageDealer.Hit();
+        if (health <= 0)
+        {
+            Destroy(gameObject);
+            // Game over
+        }
     }
 
     private void Shoot()

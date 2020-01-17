@@ -13,8 +13,10 @@ GameObject:
   - component: {fileID: 6997902864338169790}
   - component: {fileID: 114646047622600294}
   - component: {fileID: 101089214}
-  m_Layer: 0
-  m_Name: Enemy1
+  - component: {fileID: 50505822951008948}
+  - component: {fileID: 114525309696106772}
+  m_Layer: 9
+  m_Name: Enemy2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -71,7 +73,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 131ac79242aec4b54aa4af72f8e4997c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 1a1a7bee5b3fc467f92bde824c918026, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -94,7 +96,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3a95b9ae6e8d4ad5a683cea34fe2d98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 500
+  health: 200
+  laserPrefab: {fileID: 4801880213278520480, guid: e03ee49c4d51a4b92ab9bb8cf4068f3d,
+    type: 3}
+  projectileSpeed: 15
+  timeBetweenShoot: 0
+  mixTimeBetweenShoot: 0.2
+  maxTimeBetweenShoot: 3
 --- !u!114 &114646047622600294
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -107,7 +115,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e08c6c8f6a73c4f03a5d837615d324f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waveConfig: {fileID: 11400000, guid: 04b6492c404cb4339906e39648dfbf52, type: 2}
 --- !u!58 &101089214
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -118,9 +125,43 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.35375255
+--- !u!50 &50505822951008948
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7506603925445392052}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!114 &114525309696106772
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7506603925445392052}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4eab741b52554b778aa4161851e1000, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 500
