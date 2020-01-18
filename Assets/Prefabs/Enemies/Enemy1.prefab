@@ -73,7 +73,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 131ac79242aec4b54aa4af72f8e4997c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ba91ed143896449198cb81113aba1bfa, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -99,7 +99,7 @@ MonoBehaviour:
   health: 200
   laserPrefab: {fileID: 4801880213278520480, guid: e03ee49c4d51a4b92ab9bb8cf4068f3d,
     type: 3}
-  projectileSpeed: 15
+  projectileSpeed: 10
   timeBetweenShoot: 0
   mixTimeBetweenShoot: 0.2
   maxTimeBetweenShoot: 3
@@ -128,9 +128,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.0023715496, y: 0.08537644}
   serializedVersion: 2
-  m_Radius: 0.35375255
+  m_Radius: 0.45572996
 --- !u!50 &50505822951008948
 Rigidbody2D:
   serializedVersion: 4

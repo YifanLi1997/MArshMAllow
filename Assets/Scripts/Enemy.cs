@@ -10,10 +10,11 @@ public class Enemy : MonoBehaviour
 
     [Header("Projectile")]
     [SerializeField] GameObject laserPrefab;
-    [SerializeField] float projectileSpeed = 10f;
+    [SerializeField] float verticalProjectileSpeed;
+    [SerializeField] float horizontalProjectileSpeed;
     [SerializeField] float timeBetweenShoot;
-    [SerializeField] float mixTimeBetweenShoot = 0.2f;
-    [SerializeField] float maxTimeBetweenShoot = 1f;
+    [SerializeField] float mixTimeBetweenShoot = 5f;
+    [SerializeField] float maxTimeBetweenShoot = 10f;
 
     private void Start()
     {
@@ -34,8 +35,12 @@ public class Enemy : MonoBehaviour
                 laserPrefab,
                 transform.position,
                 transform.rotation) as GameObject;
+
+            verticalProjectileSpeed = UnityEngine.Random.Range(-10f, -1f);
+            horizontalProjectileSpeed = UnityEngine.Random.Range(-10f, 10f);
+
             laser.GetComponent<Rigidbody2D>().velocity =
-                new Vector2(0, -projectileSpeed);
+                new Vector2(horizontalProjectileSpeed, verticalProjectileSpeed);
             timeBetweenShoot =
                 UnityEngine.Random.Range(mixTimeBetweenShoot, maxTimeBetweenShoot);
         }
