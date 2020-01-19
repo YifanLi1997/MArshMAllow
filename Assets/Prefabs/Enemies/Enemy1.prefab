@@ -97,9 +97,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 200
+  explosionPoint: 100
+  gameStatus: {fileID: 5105081957294722502, guid: 69724f5d74e3f4e36b625ad027cd6a5f,
+    type: 3}
   laserPrefab: {fileID: 4801880213278520480, guid: e03ee49c4d51a4b92ab9bb8cf4068f3d,
     type: 3}
-  projectileSpeed: 10
+  verticalProjectileSpeed: 0
+  horizontalProjectileSpeed: 0
   timeBetweenShoot: 0
   mixTimeBetweenShoot: 0.2
   maxTimeBetweenShoot: 3

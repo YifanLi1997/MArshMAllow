@@ -9,6 +9,19 @@ public class ScreenScroller : MonoBehaviour
     Material material;
     Vector2 offSet;
 
+    private void Awake()
+    {
+        int screenScrollerCount = FindObjectsOfType<ScreenScroller>().Length;
+        if (screenScrollerCount > 1)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            DontDestroyOnLoad(gameObject);
+        }
+    }
+
     // Start is called before the first frame update
     void Start()
     {
