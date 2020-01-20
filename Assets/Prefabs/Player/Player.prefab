@@ -163,6 +163,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 1000
+  playerExplosionVFXPrefab: {fileID: 1876649109018701871, guid: 37812b6194aad464fb3225e0c316fc28,
+    type: 3}
+  durationOfExplosion: 20
   moveSpeed: 20
   xPadding: 0.5
   yPadding: 0.5

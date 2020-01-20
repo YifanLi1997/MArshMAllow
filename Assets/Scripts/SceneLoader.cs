@@ -17,6 +17,17 @@ public class SceneLoader : MonoBehaviour
         // reset the game
     }
 
+    IEnumerator WaitAndLoad()
+    {
+        yield return new WaitForSeconds(0.5f);
+        SceneManager.LoadScene("Game Over");
+    }
+
+    public void LoadGameOver()
+    {
+        StartCoroutine(WaitAndLoad());
+    }
+
     public void QuitGame()
     {
         Application.Quit();

@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 114734476297011288}
   m_Layer: 9
   m_Name: Enemy1
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -98,8 +98,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 200
   explosionPoint: 100
-  gameStatus: {fileID: 5105081957294722502, guid: 69724f5d74e3f4e36b625ad027cd6a5f,
+  enemyExplosionVFXPrefab: {fileID: 1876649109018701871, guid: fdf6b9d0c246f4ff9a81572e90de245c,
     type: 3}
+  durationOfExplosion: 1
   laserPrefab: {fileID: 4801880213278520480, guid: e03ee49c4d51a4b92ab9bb8cf4068f3d,
     type: 3}
   verticalProjectileSpeed: 0

@@ -8,6 +8,8 @@ public class Player : MonoBehaviour
 {
     [Header("Player Health")]
     [SerializeField] int health = 1000;
+    [SerializeField] GameObject playerExplosionVFXPrefab;
+    [SerializeField] float durationOfExplosion = 1f;
 
     [Header("Player Movement")]
     [SerializeField] float moveSpeed = 20f;
@@ -59,10 +61,20 @@ public class Player : MonoBehaviour
         damageDealer.Hit();
         if (health <= 0)
         {
-            Destroy(gameObject);
-            // Game over
-            SceneManager.LoadScene("Game Over");
+            Die();
         }
+    }
+
+    private void Die()
+    {
+        Destroy(gameObject);
+        // Game over
+        GameObject playerExplosion = Instantiate(
+            playerExplosionVFXPrefab,
+            transform.position,
+            transform.rotation);
+        Destroy(playerExplosion, durationOfExplosion);
+        FindObjectOfType<SceneLoader>().LoadGameOver();
     }
 
     private void Shoot()

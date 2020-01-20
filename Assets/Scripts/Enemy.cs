@@ -8,6 +8,8 @@ public class Enemy : MonoBehaviour
     [Header("Enemy Health")]
     [SerializeField] int health = 500;
     [SerializeField] int explosionPoint = 100;
+    [SerializeField] GameObject enemyExplosionVFXPrefab;
+    [SerializeField] float durationOfExplosion = 1f;
 
     [Header("Projectile")]
     [SerializeField] GameObject laserPrefab;
@@ -66,8 +68,21 @@ public class Enemy : MonoBehaviour
         damageDealer.Hit();
         if (health <= 0)
         {
-            Destroy(gameObject);
-            m_gameStatus.AddExplosionPoint(explosionPoint);
+            Die();
         }
+    }
+
+    // this should be private,
+    // but for the reason described in DamageDealer.cs
+    // we implement this for now
+    public void Die()
+    {
+        Destroy(gameObject);
+        m_gameStatus.AddExplosionPoint(explosionPoint);
+        GameObject enemyExplosion = Instantiate(
+            enemyExplosionVFXPrefab,
+            transform.position,
+            transform.rotation);
+        Destroy(enemyExplosion, durationOfExplosion);
     }
 }
