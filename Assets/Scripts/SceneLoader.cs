@@ -17,6 +17,12 @@ public class SceneLoader : MonoBehaviour
         // reset the game
     }
 
+    public void LoadLevel1()
+    {
+        SceneManager.LoadScene("Level 1");
+        // reset the game
+    }
+
     IEnumerator WaitAndLoad()
     {
         yield return new WaitForSeconds(0.5f);

@@ -173,3 +173,7 @@ MonoBehaviour:
     type: 3}
   projectileSpeed: 50
   timeBetweenShoot: 0.1
+  deathSFX: {fileID: 8300000, guid: 7390a371f68f142728029fc31fc06a7d, type: 3}
+  shootingSFX: {fileID: 8300000, guid: a2c749fb196ce4b16a6fa9a7a127d00d, type: 3}
+  deathVolume: 1
+  shootingVolume: 0

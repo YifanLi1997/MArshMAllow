@@ -108,6 +108,10 @@ MonoBehaviour:
   timeBetweenShoot: 0
   mixTimeBetweenShoot: 0.2
   maxTimeBetweenShoot: 3
+  deathSFX: {fileID: 8300000, guid: 228ea06da411a40418ce0052110f399f, type: 3}
+  shootingSFX: {fileID: 8300000, guid: 2de6ffc8fdafb4463bcbad7e83451dd1, type: 3}
+  deathVolume: 0.75
+  shootingVolume: 0.5
 --- !u!114 &114646047622600294
 MonoBehaviour:
   m_ObjectHideFlags: 0

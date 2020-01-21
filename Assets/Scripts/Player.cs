@@ -21,6 +21,12 @@ public class Player : MonoBehaviour
     [SerializeField] float projectileSpeed = 50f;
     [SerializeField] float timeBetweenShoot = 0.1f;
 
+    [Header("Sound Effect")]
+    [SerializeField] AudioClip deathSFX;
+    [SerializeField] AudioClip shootingSFX;
+    [SerializeField] [Range(0, 1)] float deathVolume = 1f;
+    [SerializeField] [Range(0, 1)] float shootingVolume = 0.25f;
+
     Camera m_MainCamera;
 
     float xMin;
@@ -67,13 +73,20 @@ public class Player : MonoBehaviour
 
     private void Die()
     {
+        // Destory player itself
         Destroy(gameObject);
-        // Game over
+
+        // VFX
         GameObject playerExplosion = Instantiate(
             playerExplosionVFXPrefab,
             transform.position,
             transform.rotation);
         Destroy(playerExplosion, durationOfExplosion);
+
+        // SFX
+        AudioSource.PlayClipAtPoint(deathSFX, Camera.main.transform.position, deathVolume);
+
+        // Load GameOver Scene
         FindObjectOfType<SceneLoader>().LoadGameOver();
     }
 
@@ -98,6 +111,7 @@ public class Player : MonoBehaviour
                     transform.position,
                     transform.rotation) as GameObject;
             laser.GetComponent<Rigidbody2D>().velocity = new Vector2(0, projectileSpeed);
+            AudioSource.PlayClipAtPoint(shootingSFX, Camera.main.transform.position, shootingVolume);
             yield return new WaitForSeconds(timeBetweenShoot);
         }
     }

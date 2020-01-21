@@ -19,6 +19,12 @@ public class Enemy : MonoBehaviour
     [SerializeField] float mixTimeBetweenShoot = 5f;
     [SerializeField] float maxTimeBetweenShoot = 10f;
 
+    [Header("Sound Effect")]
+    [SerializeField] AudioClip deathSFX;
+    [SerializeField] AudioClip shootingSFX;
+    [SerializeField] [Range(0, 1)] float deathVolume = 0.75f;
+    [SerializeField] [Range(0, 1)] float shootingVolume = 0.5f;
+
     GameStatus m_gameStatus;
 
     private void Start()
@@ -37,6 +43,7 @@ public class Enemy : MonoBehaviour
        timeBetweenShoot -= Time.deltaTime;
        if (timeBetweenShoot <= 0)
        {
+            // VFX
             GameObject laser = Instantiate(
                 laserPrefab,
                 transform.position,
@@ -49,6 +56,9 @@ public class Enemy : MonoBehaviour
                 new Vector2(horizontalProjectileSpeed, verticalProjectileSpeed);
             timeBetweenShoot =
                 UnityEngine.Random.Range(mixTimeBetweenShoot, maxTimeBetweenShoot);
+
+            // SFX
+            AudioSource.PlayClipAtPoint(shootingSFX, Camera.main.transform.position, shootingVolume);
         }
     }
 
@@ -77,12 +87,20 @@ public class Enemy : MonoBehaviour
     // we implement this for now
     public void Die()
     {
+        // Destory Enemy itself
         Destroy(gameObject);
+
+        // Update score
         m_gameStatus.AddExplosionPoint(explosionPoint);
+
+        // VFX
         GameObject enemyExplosion = Instantiate(
             enemyExplosionVFXPrefab,
             transform.position,
             transform.rotation);
         Destroy(enemyExplosion, durationOfExplosion);
+
+        // SFX
+        AudioSource.PlayClipAtPoint(deathSFX, Camera.main.transform.position, deathVolume);
     }
 }
