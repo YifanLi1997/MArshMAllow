@@ -15,6 +15,7 @@ public class SceneLoader : MonoBehaviour
     {
         SceneManager.LoadScene(0);
         // reset the game
+        FindObjectOfType<GameStatus>().Reset();
     }
 
     public void LoadLevel1()

@@ -8,6 +8,7 @@ public class Enemy : MonoBehaviour
     [Header("Enemy Health")]
     [SerializeField] int health = 500;
     [SerializeField] int explosionPoint = 100;
+    [SerializeField] int hitPoint = 20;
     [SerializeField] GameObject enemyExplosionVFXPrefab;
     [SerializeField] float durationOfExplosion = 1f;
 
@@ -74,7 +75,7 @@ public class Enemy : MonoBehaviour
     private void ProcessHit(DamageDealer damageDealer)
     {
         health -= damageDealer.GetDamage();
-        m_gameStatus.AddHitPoint();
+        m_gameStatus.AddToScore(hitPoint);
         damageDealer.Hit();
         if (health <= 0)
         {
@@ -91,7 +92,7 @@ public class Enemy : MonoBehaviour
         Destroy(gameObject);
 
         // Update score
-        m_gameStatus.AddExplosionPoint(explosionPoint);
+        m_gameStatus.AddToScore(explosionPoint);
 
         // VFX
         GameObject enemyExplosion = Instantiate(

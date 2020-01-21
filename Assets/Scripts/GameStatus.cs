@@ -5,12 +5,8 @@ using UnityEngine;
 
 public class GameStatus : MonoBehaviour
 {
-    // config params
-    [SerializeField] int pointsPerHit = 20;
-    [SerializeField] TextMeshProUGUI scoreText;
-
     // state vars
-    [SerializeField] int currentScore = 0;
+    [SerializeField] int currentScore;
 
     private void Awake()
     {
@@ -25,26 +21,18 @@ public class GameStatus : MonoBehaviour
         }
     }
 
-    private void Start()
-    { 
-        scoreText.text = "Score: " + currentScore.ToString(); 
+    public int GetScore()
+    {
+        return currentScore;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void AddToScore(int point)
     {
-        
+        currentScore += point;
     }
 
-    public void AddExplosionPoint(int explosionPoint)
+    public void Reset()
     {
-        currentScore += explosionPoint;
-        scoreText.text = "Score: " + currentScore.ToString();
-    }
-
-    public void AddHitPoint()
-    {
-        currentScore += pointsPerHit;
-        scoreText.text = "Score: " + currentScore.ToString();
+        Destroy(gameObject);
     }
 }
