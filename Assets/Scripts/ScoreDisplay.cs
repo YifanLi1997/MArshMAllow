@@ -24,7 +24,17 @@ public class ScoreDisplay : MonoBehaviour
          * the gameStatus would not be the one we are looking for
          * it should be related to my impletation of Singleton
          * but for now, I cannot find a good solution...
+         *
+         * solution 1:
+         * the current implementation - call FindObjectOfType every frame
+         *
+         * solution 2:
+         * put the score Text and Canvas into the GameStatus prefab
+         * as its child, then the score will be kept.
+         * however, in this case, the score Text UI in GameOver scene
+         * will have to be the same as the Game scene.
          **/
+
         gameStatus = FindObjectOfType<GameStatus>();
         scoreText.text = gameStatus.GetScore().ToString();
     }
