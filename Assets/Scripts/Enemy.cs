@@ -54,7 +54,7 @@ public class Enemy : MonoBehaviour
             horizontalProjectileSpeed = UnityEngine.Random.Range(-10f, 10f);
 
             laser.GetComponent<Rigidbody2D>().velocity =
-                new Vector2(horizontalProjectileSpeed, verticalProjectileSpeed);
+                new Vector2(0f, verticalProjectileSpeed);
             timeBetweenShoot =
                 UnityEngine.Random.Range(mixTimeBetweenShoot, maxTimeBetweenShoot);
 

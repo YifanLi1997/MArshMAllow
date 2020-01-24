@@ -48,6 +48,11 @@ public class Player : MonoBehaviour
         Shoot();
     }
 
+    public int GetHealth()
+    {
+        return health;
+    }
+
     // if we want to extract this health block,
     // we could build another script called Health
     // and apply it to both Enemy and Player.

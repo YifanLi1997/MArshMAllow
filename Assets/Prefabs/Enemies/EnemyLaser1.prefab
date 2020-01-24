@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 50670815581711216}
   - component: {fileID: 70546970626564962}
   - component: {fileID: 114826651677539398}
+  - component: {fileID: 114046348517037044}
   m_Layer: 9
   m_Name: EnemyLaser1
   m_TagString: Untagged
@@ -68,8 +69,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -64993813
+  m_SortingLayer: -1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 1f1fd527b6cbb44629e8e8d1c871d101, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -132,3 +133,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 100
+--- !u!114 &114046348517037044
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4801880213278520480}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 570583e1497e446668a00d021e5741c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
