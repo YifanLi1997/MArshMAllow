@@ -66,17 +66,17 @@ public class Enemy : MonoBehaviour
     // mind the shredders
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        DamageDealer damageDealer =
-            collision.gameObject.GetComponent<DamageDealer>();
-        if (!damageDealer) { return; }
-        ProcessHit(damageDealer);
+        Projectile projectile =
+            collision.gameObject.GetComponent<Projectile>();
+        if (!projectile) { return; }
+        ProcessHit(projectile);
     }
 
-    private void ProcessHit(DamageDealer damageDealer)
+    private void ProcessHit(Projectile projectile)
     {
-        health -= damageDealer.GetDamage();
+        health -= projectile.GetDamage();
         m_gameStatus.AddToScore(hitPoint);
-        damageDealer.Hit();
+        projectile.Hit();
         if (health <= 0)
         {
             Die();

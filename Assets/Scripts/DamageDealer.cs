@@ -2,27 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+// this class is responsible for the collision between enemy and player
 public class DamageDealer : MonoBehaviour
 {
-    [SerializeField] int damage = 100;
+    [SerializeField] int damage = 500;
 
     public int GetDamage()
     {
         return damage;
     }
 
-    // after a hit/crash, the laser/bullet/enemy itself will be crashed
     public void Hit()
     {
-        Destroy(gameObject);
-
-        // though this is really not a good solution,
-        // as I cannot come up with a good one at this moment,
-        // we will use this for now.
-        // The 'Die()' function of Enemy should be private
-        if (CompareTag("Enemy"))
-        {
-            gameObject.GetComponent<Enemy>().Die();
-        }
+        gameObject.GetComponent<Enemy>().Die();
     }
 }

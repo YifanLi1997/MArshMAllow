@@ -60,10 +60,32 @@ public class Player : MonoBehaviour
     // So there, we will keep it this way
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        DamageDealer damageDealer =
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            DamageDealer damageDealer =
             collision.gameObject.GetComponent<DamageDealer>();
-        if (!damageDealer) { return; }
-        ProcessHit(damageDealer);
+            if (!damageDealer) { return; }
+            ProcessHit(damageDealer);
+        }
+
+        if (collision.gameObject.CompareTag("Projectile"))
+        {
+            Projectile projectile =
+            collision.gameObject.GetComponent<Projectile>();
+            if (!projectile) { return; }
+            ProcessHit(projectile);
+        }
+        
+    }
+
+    private void ProcessHit(Projectile projectile)
+    {
+        health -= projectile.GetDamage();
+        projectile.Hit();
+        if (health <= 0)
+        {
+            Die();
+        }
     }
 
     private void ProcessHit(DamageDealer damageDealer)
@@ -134,9 +156,11 @@ public class Player : MonoBehaviour
 
     private void SetCameraSpace()
     {
-        xMin = m_MainCamera.ViewportToWorldPoint(new Vector3(0, 0, 0)).x + xPadding;
-        xMax = m_MainCamera.ViewportToWorldPoint(new Vector3(1, 0, 0)).x - xPadding;
-        yMin = m_MainCamera.ViewportToWorldPoint(new Vector3(0, 0, 0)).y + yPadding;
-        yMax = m_MainCamera.ViewportToWorldPoint(new Vector3(0, 1, 0)).y - yPadding;
+        // due to the problem caused by screen compatibility
+        // I manually set the numbers used below
+        xMin = m_MainCamera.ViewportToWorldPoint(new Vector3(0.19f, 0, 0)).x;
+        xMax = m_MainCamera.ViewportToWorldPoint(new Vector3(0.81f, 0, 0)).x;
+        yMin = m_MainCamera.ViewportToWorldPoint(new Vector3(0, 0, 0)).y + 0.75f;
+        yMax = m_MainCamera.ViewportToWorldPoint(new Vector3(0, 1, 0)).y - 1f;
     }
 }

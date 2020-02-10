@@ -12,10 +12,10 @@ GameObject:
   - component: {fileID: 4802016283260625128}
   - component: {fileID: 6530121780164438132}
   - component: {fileID: 7985726419137262131}
-  - component: {fileID: 114013271781772510}
+  - component: {fileID: 114207281243289322}
   m_Layer: 8
   m_Name: Laser 1
-  m_TagString: Untagged
+  m_TagString: Projectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -119,7 +119,7 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 0.09, y: 0.37}
   m_Direction: 0
---- !u!114 &114013271781772510
+--- !u!114 &114207281243289322
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -128,7 +128,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 170479263752705017}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c4eab741b52554b778aa4161851e1000, type: 3}
+  m_Script: {fileID: 11500000, guid: f395fedff63d04c01acfa695744fc0bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 100
