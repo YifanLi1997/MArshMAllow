@@ -1,2 +1,3 @@
 # SpaceShooter
-A game created along learning Unity 2D
+
+Please see details in https://yifanli.games/marshmallow/
